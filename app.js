@@ -1,28 +1,24 @@
-//call the require() FUNCTION from NODE .this will call the exports set up in the rectangle.js file
-const rect = require("./rectangle");
+//we start by creating an OBJECT(rect) with 2 METHODS(perimeter, area)with 2 PARAMETERS each(x & y)
+
+const rect = {
+  perimeter: (x, y) => 2 * (x + y),
+  area: (x, y) => x * y,
+};
 
 function solveRect(l, w) {
-  console.log(`Solving for rectangle with dimensions of: ${l}, ${w}`);
+  console.log(`Solving for rectangle with the dimension ${l} & ${w}`);
 
-  rect(l, w, (err, rectangle) => {
-    if (err) {
-      console.log("ERROR:", err.message);
-    } else {
-      //use two FUNCTIONS(area() & perimeter()) set up in rectangle.js which we imported using the require FUNCTION from NODE
-      console.log(
-        `Area of rectangle with dimensions: ${l}, ${w} is: ${rectangle.area()}`
-      );
-      console.log(
-        `Perimeter of rectangle with dimensions: ${l}, ${w} is: ${rectangle.perimeter()}`
-      );
-    }
-  });
-  console.log("This statement is logged after the call to rect()");
+  if (l <= 0 || w <= 0) {
+    console.log(
+      `Error. Rectangle dimensions must be greater than 0. Received: ${l}, ${w}.`
+    );
+  } else {
+    console.log(`Area of rectangle: ${rect.area(l, w)}.`);
+
+    console.log(`Perimeter of rectangle: ${rect.perimeter(l, w)}.`);
+  }
 }
 
-//valid
-solveRect(2, 4);
-solveRect(3, 5);
-//invalid
-solveRect(0, 5);
-solveRect(2, -4);
+solveRect(0, 9);
+solveRect(9, 9);
+solveRect(-9, 9);
