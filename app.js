@@ -1,9 +1,11 @@
 //we start by creating an OBJECT(rect) with 2 METHODS(perimeter, area)with 2 PARAMETERS each(x & y)
 
-const rect = {
-  perimeter: (x, y) => 2 * (x + y),
-  area: (x, y) => x * y,
-};
+// const rect = {
+//   perimeter: (x, y) => 2 * (x + y),
+//   area: (x, y) => x * y,
+// };
+
+const rect = require("./rectangle");
 
 function solveRect(l, w) {
   console.log(`Solving for rectangle with the dimension ${l} & ${w}`);
